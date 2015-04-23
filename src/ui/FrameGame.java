@@ -7,8 +7,8 @@ import javax.swing.*;
 
 public class FrameGame extends JFrame
 {
-	private int DEFAULT_WIDTH=1200;
-	private int DEFAULT_HEIGHT=700;
+	private int DEFAULT_WIDTH=1168;
+	private int DEFAULT_HEIGHT=680;
 
 	public FrameGame()
 	{
