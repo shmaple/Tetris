@@ -3,14 +3,30 @@ package ui;
 import java.awt.Graphics;
 //import ui.*;
 
+
+
+
+import java.util.List;
+
 import javax.swing.*;
+
+import config.ConfigFactory;
+import config.GameConfig;
+import config.LayerConfig;
 
 public class JPanelGame extends JPanel
 {
 	private Layer[] lays=null;
+	private Layer[] layers=null;
 
 	public JPanelGame()
 	{
+		GameConfig cfg=ConfigFactory.getGameConfig();
+		List<LayerConfig> layersCfg=cfg.getLayersConfig();
+		for(LayerConfig layercfg:layersCfg)
+		{
+			System.out.println(layercfg.getClassName());
+		}
 		//硬编码非常LOW，数字应该写成常量或配置文件
 		lays=new Layer[]{
 				new LayerBackground(0,0,0,0),

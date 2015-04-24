@@ -44,9 +44,9 @@ public class GameConfig {
 		//设置UI参数
 		setUiConfig(game.element("frame"));
 		//设置系统参数
-		setUiConfig(game.element("system"));
+		//setUiConfig(game.element("system"));
 		//设置数据库参数
-		setUiConfig(game.element("data"));
+		//setUiConfig(game.element("data"));
 		
 	}
 	/**
@@ -57,7 +57,7 @@ public class GameConfig {
 	{
 		this.width=Integer.parseInt(frame.attributeValue("width"));
 		this.height=Integer.parseInt(frame.attributeValue("height"));
-		this.windowSize=Integer.parseInt(frame.attributeValue("windowSize"));
+		this.windowSize=Integer.parseInt(frame.attributeValue("windowsize"));
 		this.padding=Integer.parseInt(frame.attributeValue("padding"));
 		List<Element> layers=frame.elements("layer");
 		layersConfig=new ArrayList<LayerConfig>();
@@ -71,6 +71,10 @@ public class GameConfig {
 			Integer.parseInt(layer.attributeValue("h")));
 			layersConfig.add(lc);
 		}
+	}
+	public List<LayerConfig> getLayersConfig()
+	{
+		return layersConfig;
 	}
 	private void setSystemConfig(Element frame)
 	{
