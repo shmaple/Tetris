@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
  * 
  *
  */
-public abstract class Lay {
+public abstract class Layer {
 	/**
 	 * 窗口左上角X坐标
 	 */
@@ -53,7 +53,7 @@ public abstract class Lay {
 	 * @param w:矩形宽度;
 	 * @param h:矩形高度;
 	 */
-	protected Lay(int x,int y,int w,int h)
+	protected Layer(int x,int y,int w,int h)
 	{
 		this.x=x;
 		this.y=y;

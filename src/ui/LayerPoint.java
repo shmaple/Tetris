@@ -2,8 +2,8 @@ package ui;
 
 import java.awt.Graphics;
 
-public class LayGame extends Lay {
-	public LayGame(int x,int y,int w,int h)
+public class LayerPoint extends Layer {
+	public LayerPoint(int x,int y,int w,int h)
 	{
 		super(x,y,w,h);
 	}
