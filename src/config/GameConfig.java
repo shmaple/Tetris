@@ -7,7 +7,11 @@ import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
-
+/**
+ * 从xml文档中读取整个游戏配置
+ * @author shmaple-work
+ *
+ */
 public class GameConfig {
 	/**
 	 * 窗口宽度

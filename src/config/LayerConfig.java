@@ -1,5 +1,9 @@
 package config;
-
+/**
+ * 用于存储各个层的参数
+ * @author shmaple-work
+ *
+ */
 public class LayerConfig {
 	private String className;
 	private int x;
