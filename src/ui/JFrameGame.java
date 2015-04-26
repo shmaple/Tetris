@@ -1,26 +1,28 @@
 package ui;
 
 import java.awt.*;
-import java.awt.Toolkit;
 
 import javax.swing.*;
 
+import config.ConfigFactory;
+import config.GameConfig;
+
 public class JFrameGame extends JFrame
 {
-	private int DEFAULT_WIDTH=1168;
-	private int DEFAULT_HEIGHT=680;
 
-	public JFrameGame()
+	public JFrameGame(JPanelGame panelGame)
 	{
-	this.setTitle("JAVA¶íÂÞË¹·½¿é");
+	GameConfig cfg=ConfigFactory.getGameConfig();
+	this.setTitle(cfg.getTitle());
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	this.setSize(DEFAULT_WIDTH,DEFAULT_HEIGHT);
+	this.setSize(cfg.getWidth(),cfg.getHeight());
 	this.setResizable(false);
 	//ÆÁÄ»¾ÓÖÐ
 	Toolkit toolkit=Toolkit.getDefaultToolkit();
 	Dimension screen=toolkit.getScreenSize();
-	this.setLocation((screen.width-this.getWidth())/2, (screen.height-this.getHeight())/2-32);
-	this.setContentPane(new JPanelGame());
+	this.setLocation((screen.width-this.getWidth())/2, (screen.height-this.getHeight())/2-cfg.getWindowUp());
+	this.setContentPane(panelGame);
+	this.setVisible(true);
 	}
 
 }

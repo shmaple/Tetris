@@ -5,6 +5,10 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
+import config.ConfigFactory;
+import config.GameConfig;
+import dto.GameDto;
+
 /**
  * @author shmaple
  * 
@@ -32,8 +36,20 @@ public abstract class Layer {
 	/**
 	 * ±³¾°±ß¿ò¿í¶È
 	 */
-	private static final int SIZE=7;
-	protected static final int PADDING=16;
+	
+	private static final int SIZE;
+	protected GameDto dto=null;
+	protected static final int PADDING;
+	static
+	{
+		GameConfig cfg=ConfigFactory.getGameConfig();
+		SIZE=cfg.getWindowSize();
+		PADDING=cfg.getPadding();
+	}
+	public void setDto(GameDto dto)
+	{
+		this.dto=dto;
+	}
 	/**
 	 * ±³¾°Í¼Æ¬
 	 */

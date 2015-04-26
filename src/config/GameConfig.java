@@ -21,6 +21,18 @@ public class GameConfig {
 	 * ´°¿Ú¸ß¶È
 	 */
 	private int height;
+	public int getWidth() {
+		return width;
+	}
+	public int getHeight() {
+		return height;
+	}
+	public int getWindowSize() {
+		return windowSize;
+	}
+	public int getPadding() {
+		return padding;
+	}
 	/**
 	 * ±ß¿ò³ß´ç
 	 */
@@ -29,6 +41,18 @@ public class GameConfig {
 	 * ±ß¿òÄÚ±ß¾à
 	 */
 	private int padding;
+	/**
+	 *´°¿Ú°Î¸ß
+	 */
+	private int windowUp;
+	public int getWindowUp() {
+		return windowUp;
+	}
+	private String title;
+	public String getTitle()
+	{
+		return title;
+	}
 	/**
 	 * Í¼²ãÊôÐÔ
 	 */
@@ -63,6 +87,8 @@ public class GameConfig {
 		this.height=Integer.parseInt(frame.attributeValue("height"));
 		this.windowSize=Integer.parseInt(frame.attributeValue("windowsize"));
 		this.padding=Integer.parseInt(frame.attributeValue("padding"));
+		this.windowUp=Integer.parseInt(frame.attributeValue("windowUp"));
+		this.title=frame.attributeValue("title");
 		List<Element> layers=frame.elements("layer");
 		layersConfig=new ArrayList<LayerConfig>();
 		for(Element layer:layers)
