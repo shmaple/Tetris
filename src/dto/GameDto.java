@@ -5,6 +5,14 @@ import java.util.List;
 import entity.GameAct;
 
 public class GameDto {
+	public GameDto()
+	{
+		dtoInit();
+	}
+	public void dtoInit()
+	{
+		this.gameMap=new boolean[10][18];
+	}
 	/**
 	 * Êý¾Ý¿â¼ÇÂ¼
 	 */

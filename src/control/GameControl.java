@@ -28,5 +28,23 @@ public class GameControl {
 		this.panelGame.repaint();
 		
 	}
+	public void keyUp() {
+		this.gameService.keyUp();
+		this.panelGame.repaint();
+	}
+	public void keyDown() {
+		this.gameService.keyDown();
+		this.panelGame.repaint();
+		
+	}
+	public void keyLeft() {
+		this.gameService.keyLeft();
+		this.panelGame.repaint();
+		
+	}
+	public void keyRight() {
+		this.gameService.keyRight();
+		this.panelGame.repaint();
+	}
 
 }
