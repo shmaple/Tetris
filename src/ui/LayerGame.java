@@ -18,15 +18,16 @@ public class LayerGame extends Layer {
 		this.createWindow(g);
 
 		Point[] points=dto.getGameAct().getActPoints();
+		int typeCode=this.dto.getGameAct().getTypeCode();
 		for(Point point:points)
 		{
-			System.out.println(this.x+point.x*ACT_SIZE);
+			//System.out.println(this.x+point.x*ACT_SIZE);
 			g.drawImage(ACT, 
 					this.x+point.x*ACT_SIZE+7, 
 					this.y+point.y*ACT_SIZE+7,
 					this.x+point.x*ACT_SIZE+ACT_SIZE+7, 
 					this.y+point.y*ACT_SIZE+ACT_SIZE+7, 
-					32, 0, 64, 32, null);
+					(typeCode+1)*ACT_SIZE, 0, (typeCode+2)*ACT_SIZE, ACT_SIZE, null);
 		}
 		 boolean[][] map=this.dto.getGameMap();
 		 for(int x=0;x<map.length;x++)
