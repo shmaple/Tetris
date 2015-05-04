@@ -40,6 +40,9 @@ public abstract class Layer {
 	private static final int SIZE;
 	protected GameDto dto=null;
 	protected static final int PADDING;
+	private static final Image IMG_NUMBER=new ImageIcon("graphics/string/num.png").getImage();
+	protected static final int IMG_NUMBER_W=26;
+	private static final int IMG_NUMBER_H=36;
 	static
 	{
 		GameConfig cfg=ConfigFactory.getGameConfig();
@@ -101,6 +104,27 @@ public abstract class Layer {
 		g.drawImage(WINDOW_IMG, x+SIZE, y+SIZE, x+w-SIZE, y+h-SIZE, SIZE, SIZE, WINDOW_W-SIZE,WINDOW_H-SIZE, null);
 	}
 	
+	protected void drawImageActCenter(Image img,Graphics g)
+	{
+		g.drawImage(img, this.x+(this.w-img.getWidth(null)>>1), this.y+(this.h-img.getHeight(null)>>1), null);
+	}
+	
+	protected void drawNumberLeft(int x,int y,int num,int maxBit,Graphics g)
+	{
+		String str=Integer.toString(num);
+		for (int i = 0; i < maxBit; i++) {
+			if(maxBit-i<=str.length())
+			{
+				int idx=i-maxBit+str.length();
+				int bit = str.codePointAt(idx) - '0';
+				g.drawImage(IMG_NUMBER, 
+						this.x + x + i * IMG_NUMBER_W, this.y + y,
+						this.x + x + (i + 1) * IMG_NUMBER_W, this.y + y+ IMG_NUMBER_H, 
+						bit * IMG_NUMBER_W, 0, (bit + 1)* IMG_NUMBER_W, IMG_NUMBER_H, 
+						null);
+		}
+		}
+	}
 	abstract public void paint(Graphics g);
 
 }

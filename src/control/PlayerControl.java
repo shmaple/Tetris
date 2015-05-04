@@ -28,11 +28,13 @@ public class PlayerControl extends KeyAdapter {
 			case KeyEvent.VK_RIGHT:
 				this.gameControl.keyRight();
 				break;
+			case KeyEvent.VK_K:
+				 this.gameControl.test();
+				break;
 			default:
 				break;
 				
 
 		}
-		this.gameControl.test();
 	}
 }

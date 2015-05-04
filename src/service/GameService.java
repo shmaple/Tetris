@@ -16,9 +16,9 @@ public class GameService {
 		GameAct act=new GameAct(random.nextInt(MAX_TYPE));
 		this.dto.setGameAct(act);
 	}
+	//测试方法
 	public void gameTest() {
-		int temp=dto.getNowPoint();
-		dto.setNowPoint(temp+1);
+		this.dto.setNowLeverl(this.dto.getNowLeverl()+1);
 	}
 	public void keyUp() {
 		// TODO Auto-generated method stub
@@ -33,7 +33,9 @@ public class GameService {
 		for (int i = 0; i < act.length; i++) {
 			map[act[i].x][act[i].y] = true;
 		}
-		this.dto.getGameAct().init(random.nextInt(MAX_TYPE));
+		//生成下一个方块
+		this.dto.getGameAct().init(this.dto.getNext());
+		this.dto.setNext(random.nextInt(MAX_TYPE));
 		
 	}
 	public void keyRight() {
@@ -47,5 +49,6 @@ public class GameService {
 		this.dto.getGameAct().move(-1, 0,dto.getGameMap());
 	}
 
+	
 
 }
