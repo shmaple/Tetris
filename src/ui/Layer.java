@@ -1,5 +1,7 @@
 package ui;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 
@@ -40,7 +42,10 @@ public abstract class Layer {
 	private static final int SIZE;
 	protected GameDto dto=null;
 	protected static final int PADDING;
-	private static final Image IMG_NUMBER=new ImageIcon("graphics/string/num.png").getImage();
+
+	private static final int RECT_H=Img.RECT.getHeight(null);
+	private static final int  RECT_W = Img.RECT.getWidth(null);
+	private  final int expW;
 	protected static final int IMG_NUMBER_W=26;
 	private static final int IMG_NUMBER_H=36;
 	static
@@ -78,6 +83,7 @@ public abstract class Layer {
 		this.y=y;
 		this.w=w;
 		this.h=h;
+		 expW=this.w-(PADDING<<1);
 	}
 	/**»æÖÆº¬±³¾°Í¼Æ¬µÄ¾ØÐÎ±ß¿ò
 	 * 
@@ -117,12 +123,43 @@ public abstract class Layer {
 			{
 				int idx=i-maxBit+str.length();
 				int bit = str.codePointAt(idx) - '0';
-				g.drawImage(IMG_NUMBER, 
+				g.drawImage(Img.NUMBER, 
 						this.x + x + i * IMG_NUMBER_W, this.y + y,
 						this.x + x + (i + 1) * IMG_NUMBER_W, this.y + y+ IMG_NUMBER_H, 
 						bit * IMG_NUMBER_W, 0, (bit + 1)* IMG_NUMBER_W, IMG_NUMBER_H, 
 						null);
 		}
+		}
+	}
+	
+	protected void drawRect(int y,String title,String number,double value,double maxValue,Graphics g)
+	{
+		int h=32;
+		int rect_x=this.x+PADDING;
+		int rect_y=this.y+y;
+		g.setColor(Color.black);
+		g.fillRect(rect_x, rect_y, expW, RECT_H+4);
+		g.setColor(Color.white);
+		g.fillRect(rect_x+1, rect_y+1, expW-2, RECT_H+2);
+		g.setColor(Color.black);
+		g.fillRect(rect_x+2, rect_y+2, expW-4, RECT_H);
+		
+		
+		
+		//rmLine=19;
+		int w =(int)(value/maxValue*(expW-4));
+		int subIdx=(int)(value/maxValue*RECT_W);
+		g.drawImage(Img.RECT, 
+				this.x+PADDING+2, 			rect_y+2,
+				this.x+PADDING+2+w, rect_y+2+RECT_H,
+				subIdx, 0, subIdx+1, RECT_H, 
+				null);
+		g.setColor(Color.white);
+		g.setFont(new Font("ºÚÌå",Font.BOLD,20));
+		g.drawString(title, rect_x+4, rect_y+22);
+		if(number!=null)
+		{
+			//todo
 		}
 	}
 	abstract public void paint(Graphics g);

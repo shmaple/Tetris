@@ -7,7 +7,7 @@ import java.awt.Point;
 import javax.swing.ImageIcon;
 
 public class LayerGame extends Layer {
-	private static final Image ACT=new ImageIcon("Graphics/game/rect.png").getImage();
+	
 	private static int ACT_SIZE=32;
 	public LayerGame(int x,int y,int w,int h)
 	{
@@ -22,7 +22,7 @@ public class LayerGame extends Layer {
 		for(Point point:points)
 		{
 			//System.out.println(this.x+point.x*ACT_SIZE);
-			g.drawImage(ACT, 
+			g.drawImage(Img.ACT, 
 					this.x+point.x*ACT_SIZE+7, 
 					this.y+point.y*ACT_SIZE+7,
 					this.x+point.x*ACT_SIZE+ACT_SIZE+7, 
@@ -35,7 +35,7 @@ public class LayerGame extends Layer {
 			 {
 				 if(map[x][y])
 				 {
-				 g.drawImage(ACT, 
+				 g.drawImage(Img.ACT, 
 							this.x+x*ACT_SIZE+7, 
 							this.y+y*ACT_SIZE+7,
 							this.x+x*ACT_SIZE+ACT_SIZE+7, 

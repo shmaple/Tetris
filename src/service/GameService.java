@@ -16,10 +16,24 @@ public class GameService {
 		GameAct act=new GameAct(random.nextInt(MAX_TYPE));
 		this.dto.setGameAct(act);
 	}
+	//-----------------------------------------------------------------------------------
 	//≤‚ ‘∑Ω∑®
 	public void gameTest() {
-		this.dto.setNowLeverl(this.dto.getNowLeverl()+1);
+		
+		int point=this.dto.getNowPoint();
+		int rmLine=this.dto.getNowRemoveLine();
+		int lv =this.dto.getNowLeverl();
+		point+=10;
+		rmLine+=1;
+		if(rmLine%20==0){
+			lv+=1;
+		}
+		this.dto.setNowLeverl(lv);
+		this.dto.setNowPoint(point);
+		this.dto.setNowRemoveLine(rmLine);
+		
 	}
+	//-----------------------------------------------------------------------------------
 	public void keyUp() {
 		// TODO Auto-generated method stub
 	//	if(canMove(0, -1))
